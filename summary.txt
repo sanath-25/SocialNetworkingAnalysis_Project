@@ -1,0 +1,17 @@
+NUMBER OF USERS COLLECTED : 785
+NUMBER OF MESSAGES COLLECTED : 838
+NUMBER OF COMMUNITIES DISCOVERED : 34
+AVERAGE NUMBER OF USERS PER COMMUNITY : 29
+NUMBER OF INSTANCES PER CLASS FOUND :
+POSITIVES :132
+NEGATIVES :298
+ONE EXAMPLE FROM EACH CLASS :
+Instance for positive tweet:
+TWEET b'RT @LordSnow: Pray for the Starks this weekend \xf0\x9f\x99\x8f #GameOfThrones #Avengers https://t.co/x5yFiG02kj'
+positive value:1
+negative value:0
+
+Instance for negative tweet:
+TWEET:b'RT @bvorwerk: things that DON\xe2\x80\x99T make you ugly\n\n- acne\n- being over/under weight\n- scars\n- stretch marks\n- body hair\n- thinning hair/loss\n-\xe2\x80\xa6'
+positive value:0
+negative value:6

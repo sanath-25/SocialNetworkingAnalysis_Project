@@ -1,0 +1,39 @@
+collect.py: 
+            In this method, i have created a twitter connection using get_twitter method().
+	    Collected  tweets based on search/tweets in API with query as 'Avengers'. 
+	    I have collected 1000 tweets as to load the data. Using pickle, started dumping whole tweets into pickle file named tweet_64.pkl. 
+	    Created a text file naming graph.txt with screen names and ids of the user profile is not protected. 
+			   
+cluster.py:
+            In this method, we will be clustering the users based on the screen names and ids.
+	    Initially creating a graph with  edges as the screen names and ids correspondingly. 
+	    Taking the connected components of the subgraph. For each component applying girvan_newman algorithm,
+	    based on the betweenness of the edges in the graph writing the list of divided components to the pickle file named 'clusterData.pkl'.
+
+classify.py:
+	    Loading the data from the pickle file twitter_64.pkl dump which i have created in collect method before.
+	    Taking the data from the AFINN using the url http://www2.compute.dtu.dk/~faan/data/AFINN.zip and reading the data from it. 
+	    Using tokenize function we will be dividing the tweets text into tokens,using make_vocabulary function will be 
+	    creating vocabulary for tokens, which i have done in the previous assignments.
+	    Converting features to a sparse matrix X where X[i,j] is the frequency of term j in tweet i.
+	    'y' is a 1d numpy array of positive and negative . Let positives be 1, negatives be 0. Computing z = X * theta,
+	    where X is a CSR matrix. Calculating the average accuracy using KFOLD cross validation function and logistic regression as a classifier with 5 folds.
+	    I have used 'lbfgs' solver for the Logistic Classification. 	
+	    Finally we will get the accuracy value based on the division of tweets into positives and negatives. 
+            In my classification i have divided tweets who supporting and not supporting Avengers based on pos and neg calculation.
+
+summarize.py:
+
+             In this method i am summarizing the data which is collected and processed from other functions as of now.
+	     I have loaded the data from file of collect.py which is tweet_64.pkl and taking the tweets from this pkl file.
+	     For every text in the tweets and we can get the required number of messages as per our need.
+	     To calculate the number of users collected we will load the data from the tweets_64.pkl and length of the set screen names is the solution.
+	     To calculate the number of communities detected we will be taking the data from clusterData.pkl.
+	     To calcualte the Average number of user per community can be calculated based on adding the total number of users from each community and
+	     dividing the total by number of communities. 
+	     Number of instances of the positives and negatives are calculated from the opclf.pkl file which is created in the classify.py module.
+	     one example for the class instance is given by taking one positive and one negative tweet from the classify.py module with positive and negative values.
+
+Conclusion:
+			
+	     According my collected sample data, people are not happy with the ending of Avengers movie.
